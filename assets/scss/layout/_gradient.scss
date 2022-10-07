@@ -1,0 +1,71 @@
+@use "sass:color";
+@use "sass:math";
+@use "../global/" as g;
+@use "../global/mediaquery" as m;
+
+$m_color:#9E1F14;
+$s_color:#FDF551;
+$g_number:10;
+$i:1;
+$g_percent:math.div(100,($g_number - 1));
+
+@mixin g_color() {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+}
+
+#firstview{
+    @include g_color;
+    width:100%;
+    height:100%;
+    background-color:#9E1F14;
+    background-image: url("#{g.$i_path}bglineY.png");
+    background-size: 420px;
+    background-position: left top -2rem;
+  }
+.fvtitle{
+    position:absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color:#9E1F14;
+    mix-blend-mode: overlay;
+    font-size: 3rem;
+  }
+
+#bg,#gradient1,#gradient2,#gradient3,#gradient4,#gradient5,#gradient6,#gradient7,#gradient8,#gradient9{
+    @include g_color;
+    transition: 0.08s ease-out;
+  }
+  
+  #bg{
+    width:80vh;
+    height:80vh;
+    background-color:$m_color;
+  }
+  
+  @for $i from 1 to $g_number {
+    #gradient#{$i} { 
+        background-color:mix($s_color,$m_color,$g_percent * $i + 0%);
+        width:80vh - (80vh / $g_number * $i);
+        //width:100 * $g_percent * $i;
+        height:80vh - (80vh / $g_number * $i);
+    }
+  }
+  @include m.MQ_(tab){
+    #bg{
+        width:100vw;
+        height:100vw;
+        background-color:$m_color;
+      }
+    @for $i from 1 to $g_number {
+        #gradient#{$i} { 
+            @include g_color;
+            background-color:mix($s_color,$m_color,$g_percent * $i + 0%);
+            width:100vw - (100vw / $g_number * $i);
+            //width:100 * $g_percent * $i;
+            height:100vw - (100vw / $g_number * $i);
+        }
+      }
+  }
