@@ -1,0 +1,762 @@
+@charset "UTF-8";
+/*
+Theme Name: NewWebportfolio
+Theme URI: NA
+Author: Ishida Kazuki
+Author URI: NA
+Description: NA
+Version: 1.0.0
+*/
+/*全体のスタイル*/
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  box-sizing: border-box;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  color: #121212;
+  background-color: #9E1F14;
+  font-family: "Sawarabi Gothic", sans-serif;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 0 auto;
+  font-family: "Open Sans", sans-serif;
+  font-weight: normal;
+  letter-spacing: -0.05em;
+}
+
+h2 {
+  margin: 0 0 1rem -1rem;
+  padding-top: 2rem;
+  font-size: 1.5rem;
+  font-weight: normal;
+  text-align: left;
+}
+
+Section h2:first-of-type {
+  padding-top: 1rem;
+}
+
+section {
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: white;
+}
+
+a {
+  position: relative;
+  width: fit-content;
+  color: #121212;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+a:visited {
+  opacity: 0.8;
+}
+
+/*aタグアニメーション*/
+li a::after {
+  position: absolute;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: #C02425;
+  bottom: -2px;
+  border-radius: 10%;
+  transform: scale(0, 1);
+  transform-origin: right top; /*変形（アンダーラインの伸長）の原点がaタグ（各メニュー）の右端*/
+  transition: transform 0.6s;
+}
+
+li a:hover::after {
+  transform: scale(1, 1); /*ホバー後、x軸方向に1（相対値）伸長*/
+  transform-origin: left top; /*左から右に向かう*/
+}
+
+a:not(li a) {
+  color: #DB832E;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+time {
+  display: block;
+  font-size: 1rem;
+  text-align: right;
+}
+
+li {
+  list-style: none;
+}
+
+.flexcontainer { /*flex用共通パーツ*/
+  display: flex;
+}
+
+.wrap { /*背景用共通パーツ*/
+  position: relative;
+  width: 912px;
+  padding: 1rem 2rem 2rem 2rem;
+  margin: 1rem auto;
+  background-color: rgba(242, 242, 242, 0.85);
+  box-shadow: 0.5rem 0.5rem 1rem #E3E3E3;
+  border-radius: 1rem;
+}
+
+/*トップページ、ヘッダーのスタイル*/
+header {
+  position: relative;
+  width: 100vw;
+  height: 85vh;
+  /*以下アニメーション*/
+  opacity: 0;
+  color: white;
+  animation: fadeDown 1s ease 1 forwards;
+}
+
+@keyframes fadeDown { /*animation-nameで設定した値を書く*/
+  from {
+    opacity: 0;
+    transform: translateY(-2rem);
+  } /*アニメーション開始時は不透明度0%*/
+  to {
+    opacity: 0.9;
+    transform: translateY(0);
+  } /*アニメーション終了時は不透明度100%*/
+}
+.headertitle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  margin-top: 0.6rem;
+  z-index: 10;
+}
+
+.headertitle p {
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: -1rem;
+}
+
+.headertitle h2 {
+  text-align: center;
+}
+
+.headertitle a {
+  transition: text-shadow 0.1s linear;
+  color: white;
+}
+
+/*目次のスタイル*/
+.contents {
+  background-image: url("../img/bglineR.png");
+  background-size: 420px;
+  background-position: left top -2rem;
+}
+
+.contents .wrap {
+  padding-bottom: 1rem;
+}
+
+/*Conceptのスタイル*/
+.concept {
+  background-image: url("../img/bglineR.png");
+  background-size: 420px;
+  background-position: left top -2rem;
+}
+
+#Concept .wrap::before {
+  content: "Concept";
+  position: absolute;
+  top: -4rem;
+  left: -4rem;
+  color: #C73C27;
+  font-family: "Open Sans", sans-serif;
+  font-style: oblique;
+  font-size: 7rem;
+  opacity: 0.15;
+}
+
+.concept img {
+  width: 70%;
+  margin: 1rem 15%;
+}
+
+/*01のスタイル*/
+.art01 {
+  width: 100vw;
+}
+
+.art01 .arttitle {
+  background-color: #CE542A;
+}
+
+.arttitle {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.arttitle .flexcontainer {
+  top: 0px;
+  width: 1024px;
+  padding: 0.2rem 0;
+  margin: auto;
+  justify-content: space-between;
+}
+
+.arttitle .flexcontainer p {
+  color: white;
+  margin-bottom: 0;
+}
+
+.topview {
+  position: relative;
+  width: 1024px;
+  background-color: #CE542A;
+  margin-top: -1px;
+  margin: auto;
+}
+
+.art01 .topview::before {
+  content: "01";
+  position: absolute;
+  top: -5rem;
+  left: -4rem;
+  color: black;
+  opacity: 0.2;
+  font-family: "Open Sans", sans-serif;
+  font-style: oblique;
+  font-size: 10rem;
+  z-index: 11;
+}
+
+.art01 .topview::after {
+  content: "APP DESIGN";
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: black;
+  opacity: 0.2;
+  text-align: right;
+  font-family: "Open Sans", sans-serif;
+  font-style: oblique;
+  font-size: 2rem;
+}
+
+.topview img {
+  width: calc(100% - 4rem);
+  background-color: #CE542A;
+  margin-right: 4rem;
+  padding: 0;
+}
+
+.copy {
+  height: 4rem;
+  margin-right: 4rem;
+  color: white;
+  text-align: right;
+  font-size: 2rem;
+  background-color: #CE542A;
+  line-height: 2;
+}
+
+.mockup img {
+  position: absolute;
+  width: 30%;
+  padding: 24px;
+  background-color: transparent;
+  left: calc(-4rem - 24px);
+  bottom: 0;
+  filter: drop-shadow(-4px 12px 8px rgba(0, 0, 0, 0.3));
+}
+
+.flexicon {
+  display: flex;
+  width: 90%;
+  height: auto;
+  text-align: center;
+  padding: 1rem 0;
+  margin: auto;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.flexicon * {
+  width: 28%;
+  height: auto;
+}
+
+.flexicon img {
+  margin: 0.5rem 20%;
+}
+
+.art01 .wrap .flexcontainer {
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.art01 .wrap .flexcontainer img {
+  width: 25%;
+}
+
+/*02のスタイル*/
+.art02 {
+  width: 100vw;
+}
+
+.art02 .arttitle {
+  background-color: #F0CB35;
+}
+
+.art02 .copy {
+  background-color: #F0CB35;
+  margin-right: 1rem;
+}
+
+.art02 .topview img {
+  margin-right: 0;
+  margin-left: 4rem;
+}
+
+.art02 .flexcontainer p {
+  color: white;
+  margin-bottom: 0;
+}
+
+.art02 .topview::before {
+  content: "02";
+  position: absolute;
+  top: -5rem;
+  color: black;
+  opacity: 0.2;
+  font-family: "Open Sans", sans-serif;
+  font-style: oblique;
+  font-size: 10rem;
+  z-index: 11;
+}
+
+.art02 .topview::after {
+  content: "WEB DESIGN";
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  opacity: 0.2;
+  text-align: right;
+  font-family: "Open Sans", sans-serif;
+  font-style: oblique;
+  font-size: 2rem;
+}
+
+.art02 .topview {
+  background-color: #F0CB35;
+}
+
+.art02 .wrap .flexcontainer {
+  width: 70%;
+  margin: 1rem auto 2rem auto;
+  justify-content: space-between;
+}
+
+.art02 .wrap .flexcontainer img {
+  width: 40%;
+  justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.art02 .wrap img {
+  width: 70%;
+  margin: 1rem 15% 2rem 15%;
+  border-radius: 0.5rem;
+}
+
+.gif {
+  width: 20%;
+  margin: auto;
+}
+
+/*Profileのスタイル*/
+#Profile {
+  background-image: url("../img/bglineR.png");
+  position: relative;
+  padding-top: 13rem;
+  padding-bottom: 13rem;
+  background-size: 420px;
+  background-position: left top -2rem;
+}
+
+#Profile .wrap::before {
+  content: "Profile";
+  position: absolute;
+  top: -4rem;
+  left: -4rem;
+  color: #C73C27;
+  font-family: "Open Sans", sans-serif;
+  font-style: oblique;
+  font-size: 7rem;
+  opacity: 0.15;
+}
+
+.frontpage h2 {
+  padding: 0.6rem 0;
+  text-align: left;
+}
+
+.profile {
+  margin: auto;
+}
+
+.profile .flexcontainer {
+  width: 70%;
+  padding-bottom: 1rem;
+  margin: auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon {
+  width: 20%;
+  padding: 1rem;
+  font-size: 0;
+}
+
+.icon img {
+  width: 100%;
+  border-radius: 100%;
+}
+
+.name {
+  width: 40%;
+  text-align: center;
+}
+
+.name h1 {
+  width: 100%;
+  font-size: 2rem;
+  font-weight: normal;
+  margin: 0;
+}
+
+.name h3 {
+  width: 100%;
+  margin-top: 0;
+  font-size: 1rem;
+  font-weight: normal;
+  margin-bottom: -0.5rem;
+}
+
+.contact p {
+  margin-bottom: 0;
+}
+
+/*フッターのスタイル*/
+footer {
+  background-color: #9E1F14;
+  padding: 0.2rem 2rem 1rem 2rem;
+  color: #E6E6E6;
+}
+
+footer p {
+  width: 50%;
+  margin-bottom: 0;
+  text-align: right;
+}
+
+footer .flexcontainer p:first-child {
+  text-align: left;
+}
+
+/*
+スマホ簡易対応
+*/
+@media screen and (max-width: 767px) {
+  ul {
+    padding-inline-start: 0;
+  }
+  h2 {
+    font-size: 1.1rem;
+  }
+  #Contents .wrap {
+    width: calc(100% - 2rem);
+  }
+  #Contents .wrap li {
+    font-size: 0.8rem;
+    margin: 0.4rem 0;
+  }
+  .headertitle {
+    width: 100%;
+  }
+  #Concept .wrap::before, #Profile .wrap::before {
+    top: -2rem;
+    left: -2rem;
+    font-size: 4rem;
+  }
+  .concept img {
+    width: 100%;
+    margin: 1rem auto;
+  }
+  .wrap {
+    width: 80vw;
+    padding: 2rem 1rem;
+  }
+  .firstview {
+    height: 70vh;
+  }
+  .arttitle .flexcontainer {
+    width: 100vw;
+  }
+  .arttitle .flexcontainer p {
+    font-size: 0.6rem;
+  }
+  .topview {
+    width: 100vw;
+  }
+  .topview img, .art02 .topview img {
+    width: 100%;
+    margin: 0;
+  }
+  .mockup img {
+    width: 30%;
+    left: -24px;
+  }
+  .art01 .topview::before, .art02 .topview::before {
+    top: -2.5rem;
+    left: 0;
+    font-size: 5rem;
+  }
+  .fvtitle {
+    font-size: 2rem;
+  }
+  .copy {
+    height: 2rem;
+    margin-right: 0;
+    font-size: 1rem;
+  }
+  .flexicon {
+    width: 100%;
+  }
+  .flexicon img {
+    margin: auto;
+    width: 33%;
+  }
+  .flexicon p {
+    font-size: 0.6rem;
+  }
+  .art01 .wrap .flexcontainer img {
+    width: 48%;
+  }
+  .art02 .wrap .flexcontainer {
+    width: 100%;
+  }
+  .art02 .wrap img {
+    width: 100%;
+    margin: 1rem 0;
+  }
+  .profile .flexcontainer {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  .icon {
+    width: 50%;
+    margin: auto;
+  }
+  .name {
+    width: 100%;
+    margin: 1rem auto;
+  }
+  footer .flexcontainer {
+    display: block;
+  }
+  footer .flexcontainer p {
+    margin: 1rem auto;
+    text-align: left;
+    width: 100%;
+  }
+}
+/*EoF*/
+#firstview {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  background-color: #9E1F14;
+  background-image: url("../img/bglineY.png");
+  background-size: 420px;
+  background-position: left top -2rem;
+}
+
+.fvtitle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #9E1F14;
+  mix-blend-mode: overlay;
+  font-size: 3rem;
+}
+
+#bg, #gradient1, #gradient2, #gradient3, #gradient4, #gradient5, #gradient6, #gradient7, #gradient8, #gradient9 {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  transition: 0.08s ease-out;
+}
+
+#bg {
+  width: 80vh;
+  height: 80vh;
+  background-color: #9E1F14;
+}
+
+#gradient1 {
+  background-color: #a9371b;
+  width: 72vh;
+  height: 72vh;
+}
+
+#gradient2 {
+  background-color: #b34f22;
+  width: 64vh;
+  height: 64vh;
+}
+
+#gradient3 {
+  background-color: #be6628;
+  width: 56vh;
+  height: 56vh;
+}
+
+#gradient4 {
+  background-color: #c87e2f;
+  width: 48vh;
+  height: 48vh;
+}
+
+#gradient5 {
+  background-color: #d39636;
+  width: 40vh;
+  height: 40vh;
+}
+
+#gradient6 {
+  background-color: #ddae3d;
+  width: 32vh;
+  height: 32vh;
+}
+
+#gradient7 {
+  background-color: #e8c543;
+  width: 24vh;
+  height: 24vh;
+}
+
+#gradient8 {
+  background-color: #f2dd4a;
+  width: 16vh;
+  height: 16vh;
+}
+
+#gradient9 {
+  background-color: #fdf551;
+  width: 8vh;
+  height: 8vh;
+}
+
+@media screen and (max-width: 1024px) {
+  #bg {
+    width: 100vw;
+    height: 100vw;
+    background-color: #9E1F14;
+  }
+  #gradient1 {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    background-color: #a9371b;
+    width: 90vw;
+    height: 90vw;
+  }
+  #gradient2 {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    background-color: #b34f22;
+    width: 80vw;
+    height: 80vw;
+  }
+  #gradient3 {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    background-color: #be6628;
+    width: 70vw;
+    height: 70vw;
+  }
+  #gradient4 {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    background-color: #c87e2f;
+    width: 60vw;
+    height: 60vw;
+  }
+  #gradient5 {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    background-color: #d39636;
+    width: 50vw;
+    height: 50vw;
+  }
+  #gradient6 {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    background-color: #ddae3d;
+    width: 40vw;
+    height: 40vw;
+  }
+  #gradient7 {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    background-color: #e8c543;
+    width: 30vw;
+    height: 30vw;
+  }
+  #gradient8 {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    background-color: #f2dd4a;
+    width: 20vw;
+    height: 20vw;
+  }
+  #gradient9 {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    background-color: #fdf551;
+    width: 10vw;
+    height: 10vw;
+  }
+}

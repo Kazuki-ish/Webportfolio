@@ -1,0 +1,6 @@
+$i_path:"../img/";
+
+@mixin bg_image($img) {
+    background-image: url("../'img/$img");
+  }
+  

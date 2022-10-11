@@ -1,0 +1,61 @@
+/*
+Theme Name: NewWebportfolio
+Theme URI: NA
+Author: Ishida Kazuki
+Author URI: NA
+Description: NA
+Version: 1.0.0
+*/
+
+@charset "UTF-8";
+
+/*全体のスタイル*/
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+body{
+    box-sizing: border-box;
+    width:100vw;
+    margin:0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    color:#121212;
+    background-color:#9E1F14;
+    font-family:'Sawarabi Gothic', sans-serif;
+}
+h1{
+  font-size:3rem;
+  margin:0 auto;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: normal;
+  letter-spacing: -0.05em;
+}
+h2{
+  margin:0 0 1rem -1rem;
+  padding-top: 2rem;
+  font-size:1.5rem;
+  font-weight: normal;
+  text-align: left;
+}
+Section h2:first-of-type{
+  padding-top:1rem;
+}
+section{
+  width:100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: white;
+}
+
+a{
+  position: relative;
+  width: fit-content;
+  color:#121212;
+  text-decoration: none;
+  line-height:1.5;
+}
+a:visited{
+  opacity:0.8;
+}
