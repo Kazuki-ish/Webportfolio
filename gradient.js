@@ -23,7 +23,7 @@ function window_load() {
 }
 
 //7回分繰り返す
-for (let i = 1; i < 10; i++){
+for (let i = 1; i < 8; i++){
 
   //#グラデの要素を一斉取得
   let  el = document.getElementById('gradient' + i );

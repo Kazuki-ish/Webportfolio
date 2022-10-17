@@ -18,15 +18,60 @@ get_header();//ヘッダ-を表示
 </header>
 
 <main>
-    <section class="contents" id="Contents">
-      <div class="wrap">
-      <p>目次　Contents</p>
-      <ul>
-        <li><a href="#Concept">-ポートフォリオのコンセプト</a></li>
-        <li><a href="#Art01">-作品01.UXデザイン課題 「学生が使う割り勘アプリ」</a></li>
-        <li><a href="#Art02">-作品02.映像作家「名嘉真　法久」さまのWebサイト制作</a></li>
-        <li><a href="#Profile">-自己紹介</a></li>
-      </ul>
+  <section class="info">
+    <div class="contents wrap">
+        <p>目次　Contents</p>
+        <ul>
+          <li><a href="#Concept">-ポートフォリオのコンセプト</a></li>
+          <li><a href="#Art01">-作品01.UXデザイン課題 「学生が使う割り勘アプリ」</a></li>
+          <li><a href="#Art02">-作品02.映像作家「名嘉真　法久」さまのWebサイト制作</a></li>
+          <li><a href="#Profile">-自己紹介</a></li>
+        </ul>
+    </div>
+    <div class="update_info wrap">
+      <?php
+      // 取得したい内容を配列に記載します（不要箇所は省略可）
+      $args = array(
+        'post_type' => 'post',
+        'posts_per_page'   => 2, // 読み込みしたい記事数（全件取得時は-1）
+        'order'            => 'DESC', // 昇順(ASC)か降順か(DESC）
+      );
+
+      // 配列で指定した内容で、記事情報を取得
+      $the_query = new WP_Query( $args );
+
+      // 取得した記事情報の表示
+      if ( $the_query->have_posts() ): // 記事情報がある場合はforeachで記事情報を表示
+
+      // ↓ ループ開始 ↓
+      while ( $the_query->have_posts() ):
+        $the_query->the_post(); // アーカイブページ同様にthe_titleなどで記事情報を表示できるようにする
+      ?>
+        <div class="info_ttl">
+          <?php 
+            the_title('<h3>','</h3>');
+            the_date('Y/m/d','<p class="date">','</p>'); 
+          ?>
+        </div>
+        <?php the_content(); ?>
+
+      <?php
+      endwhile; 
+      // ↑ ループ終了 ↑
+
+      else: // 記事情報がなかったら
+      ?>記事を取得できませんでした。
+      <?php
+      endif;
+
+      // 一覧情報取得に利用したループをリセットする
+      wp_reset_postdata();
+      ?>
+
+    </div>
+  </section>
+  <section class="contents" id="Contents">
+      
     </div>
     </section>
     <section class="concept" id="Concept">

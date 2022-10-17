@@ -163,15 +163,76 @@ header {
   color: white;
 }
 
-/*目次のスタイル*/
-.contents {
+/*インフォのスタイル*/
+.info {
+  display: flex;
+  justify-content: space-evenly;
   background-image: url("../img/bglineR.png");
   background-size: 420px;
   background-position: left top -2rem;
 }
-
-.contents .wrap {
-  padding-bottom: 1rem;
+.info.wrap {
+  margin: 0;
+}
+.info .contents.wrap {
+  width: 40vw;
+}
+.info .update_info.wrap {
+  width: 25vw;
+  padding: 1rem;
+  position: relative;
+}
+.info .update_info.wrap p {
+  font-size: 0.7rem;
+  opacity: 0.9;
+  text-align: justify;
+}
+.info .update_info.wrap::before {
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  content: "update";
+  color: #C73C27;
+  font-family: "Open Sans", sans-serif;
+  font-style: oblique;
+  font-size: 2rem;
+  opacity: 0.15;
+}
+.info .update_info .info_ttl {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.info .update_info .info_ttl .date {
+  opacity: 0.7;
+  display: inline-block;
+  margin-bottom: 0;
+}
+.info .update_info .info_ttl h3 {
+  font-size: 0.8rem;
+  display: inline-block;
+  font-weight: normal;
+  margin-top: 0.7rem;
+  margin-bottom: 0.4rem;
+}
+.info p + .info_ttl {
+  border-top: dotted 2px rgba(158, 31, 20, 0.85);
+}
+@media screen and (max-width: 1024px) {
+  .info {
+    display: block;
+  }
+  .info .contents.wrap {
+    width: 80vw;
+  }
+  .info .contents.wrap li {
+    font-size: 0.8rem;
+    margin: 0.4rem 0;
+  }
+  .info .update_info.wrap {
+    width: 80vw;
+  }
 }
 
 /*Conceptのスタイル*/
@@ -486,19 +547,12 @@ footer .flexcontainer p:first-child {
 /*
 スマホ簡易対応
 */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1024px) {
   ul {
     padding-inline-start: 0;
   }
   h2 {
     font-size: 1.1rem;
-  }
-  #Contents .wrap {
-    width: calc(100% - 2rem);
-  }
-  #Contents .wrap li {
-    font-size: 0.8rem;
-    margin: 0.4rem 0;
   }
   .headertitle {
     width: 100%;
@@ -628,57 +682,45 @@ footer .flexcontainer p:first-child {
 }
 
 #gradient1 {
-  background-color: #a9371b;
-  width: 72vh;
-  height: 72vh;
+  background-color: #ac3e1d;
+  width: 70vh;
+  height: 70vh;
 }
 
 #gradient2 {
-  background-color: #b34f22;
-  width: 64vh;
-  height: 64vh;
+  background-color: #b95c25;
+  width: 60vh;
+  height: 60vh;
 }
 
 #gradient3 {
-  background-color: #be6628;
-  width: 56vh;
-  height: 56vh;
+  background-color: #c77b2e;
+  width: 50vh;
+  height: 50vh;
 }
 
 #gradient4 {
-  background-color: #c87e2f;
-  width: 48vh;
-  height: 48vh;
-}
-
-#gradient5 {
-  background-color: #d39636;
+  background-color: #d49937;
   width: 40vh;
   height: 40vh;
 }
 
+#gradient5 {
+  background-color: #e2b840;
+  width: 30vh;
+  height: 30vh;
+}
+
 #gradient6 {
-  background-color: #ddae3d;
-  width: 32vh;
-  height: 32vh;
+  background-color: #efd648;
+  width: 20vh;
+  height: 20vh;
 }
 
 #gradient7 {
-  background-color: #e8c543;
-  width: 24vh;
-  height: 24vh;
-}
-
-#gradient8 {
-  background-color: #f2dd4a;
-  width: 16vh;
-  height: 16vh;
-}
-
-#gradient9 {
   background-color: #fdf551;
-  width: 8vh;
-  height: 8vh;
+  width: 10vh;
+  height: 10vh;
 }
 
 @media screen and (max-width: 1024px) {
@@ -691,72 +733,56 @@ footer .flexcontainer p:first-child {
     position: absolute;
     inset: 0;
     margin: auto;
-    background-color: #a9371b;
-    width: 90vw;
-    height: 90vw;
+    background-color: #ac3e1d;
+    width: 87.5vw;
+    height: 87.5vw;
   }
   #gradient2 {
     position: absolute;
     inset: 0;
     margin: auto;
-    background-color: #b34f22;
-    width: 80vw;
-    height: 80vw;
+    background-color: #b95c25;
+    width: 75vw;
+    height: 75vw;
   }
   #gradient3 {
     position: absolute;
     inset: 0;
     margin: auto;
-    background-color: #be6628;
-    width: 70vw;
-    height: 70vw;
+    background-color: #c77b2e;
+    width: 62.5vw;
+    height: 62.5vw;
   }
   #gradient4 {
     position: absolute;
     inset: 0;
     margin: auto;
-    background-color: #c87e2f;
-    width: 60vw;
-    height: 60vw;
+    background-color: #d49937;
+    width: 50vw;
+    height: 50vw;
   }
   #gradient5 {
     position: absolute;
     inset: 0;
     margin: auto;
-    background-color: #d39636;
-    width: 50vw;
-    height: 50vw;
+    background-color: #e2b840;
+    width: 37.5vw;
+    height: 37.5vw;
   }
   #gradient6 {
     position: absolute;
     inset: 0;
     margin: auto;
-    background-color: #ddae3d;
-    width: 40vw;
-    height: 40vw;
+    background-color: #efd648;
+    width: 25vw;
+    height: 25vw;
   }
   #gradient7 {
     position: absolute;
     inset: 0;
     margin: auto;
-    background-color: #e8c543;
-    width: 30vw;
-    height: 30vw;
-  }
-  #gradient8 {
-    position: absolute;
-    inset: 0;
-    margin: auto;
-    background-color: #f2dd4a;
-    width: 20vw;
-    height: 20vw;
-  }
-  #gradient9 {
-    position: absolute;
-    inset: 0;
-    margin: auto;
     background-color: #fdf551;
-    width: 10vw;
-    height: 10vw;
+    width: 12.5vw;
+    height: 12.5vw;
   }
 }
