@@ -10,8 +10,6 @@ get_header();//ヘッダ-を表示
             <div id="gradient5"></div>
               <div id="gradient6"></div>
                 <div id="gradient7"></div>
-                  <div id="gradient8"></div>
-                    <div id="gradient9"></div>
                 <dev class="fvtitle">Interaction.</div>
                 </div>
   </div>

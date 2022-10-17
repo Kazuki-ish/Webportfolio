@@ -34,7 +34,7 @@ $g_percent:math.div(100,($g_number - 1));
     font-size: 3rem;
   }
 
-#bg,#gradient1,#gradient2,#gradient3,#gradient4,#gradient5,#gradient6,#gradient7,#gradient8,#gradient9{
+#bg,#gradient1,#gradient2,#gradient3,#gradient4,#gradient5,#gradient6,#gradient7{
     @include g_color;
     transition: 0.08s ease-out;
   }
